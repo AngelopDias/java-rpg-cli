@@ -33,4 +33,3 @@ Compile e execute o arquivo `App.java`.
 ## Objetivo
 
 Projeto criado com foco em aprendizado de Java e prática de lógica de programação utilizando POO.
->>>>>>> b098e14afffc7afaf1cc5b68d56a961fc959a998
