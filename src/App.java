@@ -1,4 +1,5 @@
     import java.util.*;
+    import java.util.concurrent.ThreadLocalRandom;
 
     class Personagem{
             String nome;
@@ -21,9 +22,8 @@
             }
             
             public int cura(){
-                Random random = new Random();
 
-                int vidaCurada = random.nextInt(10) + 1;
+                int vidaCurada = ThreadLocalRandom.current().nextInt(15, 26);
 
                 int vidaNova = vida + vidaCurada;
 
@@ -74,7 +74,8 @@
                 + "Este programa e uma CLI que utiliza Java, que funcionara como um\n"
                 + "RPG simples, voce devera informa as seguintes informacoes de 2\n"
                 + "personagens: nome, vida, ataque maximo e ataque minimo. Que poderao\n"
-                + "se atacar! Bom jogo..."
+                + "se atacar, cada personagem tem 3 pocoes de cura, que curam 15 a 25 de vida.\n"
+                + "Bom jogo..."
             );
             
             Personagem per1 = null;
@@ -157,7 +158,8 @@
 
             int vidInicialp1 = per1.getVida();
             int vidInicialp2 = per2.getVida(); 
-
+            int quantPoc1 = 3;
+            int quantPoc2 = 3;
             
             while(ganhador.equals("sg")){
                 int persAleatorio = new Random().nextInt(2);
@@ -184,20 +186,24 @@
                         }
                     }
                     else if(op == 1){
-                        if(per1.getVida() < vidInicialp1){
+                        if(quantPoc1 == 0){
+                            System.out.println("Você não tem mais pocoes! Perdeu a vez...");
+                        }
+                        quantPoc1 -= 1;
+                        if(quantPoc1 >= 0){
+                            System.out.println("Restam " + quantPoc1 + " pocoes de 3!");
+                            if(per1.getVida() < vidInicialp1){
+                                int vidaNova = per1.cura();
 
-                            int vidaNova = per1.cura();
-
-                            if(vidaNova > vidInicialp1){
-                                System.out.println("A vida curada e maior que a vida inicial! Perdeu a vez...");
+                                if(vidaNova > vidInicialp1){
+                                    int vidaObtida = vidaNova - per1.vida;
+                                    per1.vida = vidInicialp1;
+                                    System.out.println("Vida obtida: " + vidaObtida);
+                                }
                             }
                             else{
-                                per1.curar(vidaNova);
-                                System.out.println("Sua vida curada e: " + vidaNova);
+                                System.out.println("A vida ja esta no maximo! Perdeu a vez...");
                             }
-                        }
-                        else{
-                            System.out.println("A vida ja esta no maximo! Perdeu a vez...");
                         }
                     }
                 }
@@ -224,21 +230,26 @@
                             return;
                         }
                     }
+                    
                     else if(op == 1){
-                        if(per2.getVida() < vidInicialp2){
+                        if(quantPoc2 == 0){
+                            System.out.println("Você não tem mais pocoes! Perdeu a vez...");
+                        }
+                        quantPoc2 -= 1;
+                        if(quantPoc2 >= 0){
+                            System.out.println("Restam " + quantPoc2+ " pocoes de 3!");
+                            if(per2.getVida() < vidInicialp2){
+                                int vidaNova = per2.cura();
 
-                            int vidaNova = per2.cura();
-
-                            if(vidaNova > vidInicialp2){
-                                System.out.println("A vida curada e maior que a vida inicial! Perdeu a vez...");
+                                if(vidaNova > vidInicialp2){
+                                    int vidaObtida = vidaNova - per2.vida;
+                                    per2.vida = vidInicialp2;
+                                    System.out.println("Vida obtida: " + vidaObtida);
+                                }
                             }
                             else{
-                                per2.curar(vidaNova);
-                                System.out.println("Sua vida curada e: " + vidaNova);
+                                System.out.println("A vida ja esta no maximo! Perdeu a vez...");
                             }
-                        }
-                        else{
-                            System.out.println("A vida ja esta no maximo! Perdeu a vez...");
                         }
                     }
                 }
