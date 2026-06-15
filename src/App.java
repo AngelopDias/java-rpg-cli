@@ -199,6 +199,7 @@
                                     int vidaObtida = vidaNova - per1.vida;
                                     per1.vida = vidInicialp1;
                                     System.out.println("Vida obtida: " + vidaObtida);
+                                    System.out.println("Vida atual: " + per1.getVida());
                                 }
                             }
                             else{
@@ -245,6 +246,7 @@
                                     int vidaObtida = vidaNova - per2.vida;
                                     per2.vida = vidInicialp2;
                                     System.out.println("Vida obtida: " + vidaObtida);
+                                    System.out.println("Vida atual: " + per2.getVida());
                                 }
                             }
                             else{
