@@ -33,7 +33,7 @@ No terminal, entre na pasta do projeto e execute os comandos abaixo.
 Compile os arquivos Java e coloque os arquivos `.class` gerados na pasta `bin`:
 
 ```powershell
-javac -d bin src\App.java src\Personagem.java
+javac -d bin src\App.java
 ```
 
 Execute o programa:
