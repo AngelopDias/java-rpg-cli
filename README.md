@@ -28,10 +28,23 @@ O projeto funciona diretamente no terminal (CLI) e permite criar dois personagen
 
 ## Como executar
 
-Compile e execute o arquivo `App.java`.
+No terminal, entre na pasta do projeto e execute os comandos abaixo.
 
-Para compilar: javac -d bin src\App.java src\Personagem.java
-Para executar: java -cp bin App
+Compile os arquivos Java e coloque os arquivos `.class` gerados na pasta `bin`:
+
+```powershell
+javac -d bin src\App.java src\Personagem.java
+```
+
+Execute o programa:
+
+```powershell
+java -cp bin App
+```
+
+O comando `javac` compila o código-fonte. A opção `-d bin` indica que os arquivos compilados devem ser gerados dentro da pasta `bin`. Depois, o comando `java -cp bin App` procura a classe `App` dentro da pasta `bin` e inicia o programa.
+javac -d bin src\App.java src\Personagem.java
+java -cp bin App
 
 ## Objetivo
 
