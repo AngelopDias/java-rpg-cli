@@ -30,6 +30,9 @@ O projeto funciona diretamente no terminal (CLI) e permite criar dois personagen
 
 Compile e execute o arquivo `App.java`.
 
+Para compilar: javac -d bin src\App.java src\Personagem.java
+Para executar: java -cp bin App
+
 ## Objetivo
 
 Projeto criado com foco em aprendizado de Java e prática de lógica de programação utilizando POO.
